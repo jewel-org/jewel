@@ -6,7 +6,7 @@ using System.Numerics;
 
 internal static class Renderer
 {
-    private static readonly GL _gl;
+    private static readonly GL _gl = GL.GetApi(Program.Window);
 
     private static readonly ImGuiController _gui;
 
@@ -28,9 +28,6 @@ internal static class Renderer
     static Renderer()
     {
         Bind(Program.Window);
-
-        _gl = GL.GetApi(Program.Window);
-
         OnResize(Program.Window.Size);
 
         _gui = new ImGuiController(_gl, Program.Window, Input.Context);

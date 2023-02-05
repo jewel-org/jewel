@@ -15,7 +15,7 @@ internal sealed class Texture
         _gl = gl;
         _handle = _gl.GenTexture();
 
-        var image = Image.Load<Rgba32>(Program.GetRes($"{texturePath}.{path}"));
+        using var image = Image.Load<Rgba32>(Program.GetRes($"{texturePath}.{path}"));
         image.Mutate(x => x.Flip(FlipMode.Vertical));
 
         var data = new byte[4 * image.Width * image.Height];

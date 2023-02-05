@@ -2,7 +2,7 @@
 
 internal static class Program
 {
-    public static IWindow Window { get; private set; }
+    public static IWindow Window { get; }
 
     static Program()
     {
